@@ -20,8 +20,8 @@ const Page = () => {
       >
         Home Page:
       </label>
-      {/* FAQ'S */}
-      <FormSection title="FAQ's" onSubmit={handleFAQSubmit} />
+      {/* FAQ&apos;s */}
+      <FormSection title="FAQ&apos;s" onSubmit={handleFAQSubmit} />
       <FormSection
         title="Everything you need to know section"
         onSubmit={handleInfoSectionSubmit}

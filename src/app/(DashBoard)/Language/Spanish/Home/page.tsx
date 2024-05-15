@@ -10,14 +10,14 @@ const Page = () => {
       >
         Home Page:
       </label>
-      {/* FAQ'S */}
+      {/* FAQ&apos;s */}
       <div className="w-full flex flex-col gap-5">
         <div className="w-full flex flex-col gap-5">
           <label
             htmlFor="inputData"
             className="block mb-2 text-xl font-light text-gray-700"
           >
-            FAQ's:
+            FAQ&apos;s:
           </label>
           <input
             id="question"

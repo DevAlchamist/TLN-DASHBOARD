@@ -1,9 +1,9 @@
-// page.j
+// Page.js
 "use client";
 import React, { useState } from "react";
 
-const page = () => {
-  const [inputValue, setInputValue] = useState<string>("");
+const Page = () => {
+  const [InputValue, setInputValue] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -18,15 +18,15 @@ const page = () => {
         type="text"
         id="inputData"
         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-        value={inputValue}
+        value={InputValue}
         onChange={handleInputChange}
       />
       <div className="">
         <section className="rounded-lg overflow-hidden">
           <div className="bg-black flex items-center justify-center h-[30px] lg:h-[48px] w-full">
             <h1 className=" text-[#158487] 2xl:text-[16px] xl:text-[14px] text-[10px] md:text-base text-xs font-bold">
-              {inputValue ? (
-                inputValue
+              {InputValue ? (
+                InputValue
               ) : (
                 <>
                   <span className="font-normal">
@@ -39,12 +39,14 @@ const page = () => {
           </div>
         </section>
       </div>
-        <div className="flex justify-start items-center gap-5">
-          <button className="py-2 px-4 rounded-lg border">cancel</button>
-          <button className="py-2 px-4 text-white rounded-lg border bg-[#349de3]">Update</button>
-        </div>
+      <div className="flex justify-start items-center gap-5">
+        <button className="py-2 px-4 rounded-lg border">cancel</button>
+        <button className="py-2 px-4 text-white rounded-lg border bg-[#349de3]">
+          Update
+        </button>
+      </div>
     </div>
   );
 };
 
-export default page;
+export default Page;
