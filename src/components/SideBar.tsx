@@ -10,8 +10,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
-import NavButtons from "./Reusable/NavButtons";
-import Breadcrumbs from "./Reusable/BreadCrumbs";
 
 const SideBar = ({
   children,
@@ -26,11 +24,12 @@ const SideBar = ({
   // Upcoming Batches
   // FAQs
   // Everything you need to know section
+
   const NavData = [
     { Title: "Home", Link: "/", Icon: faHouse },
     { Title: "About", Link: "/About", Icon: faRectangleList },
     { Title: "Promo", Link: "/Promo", Icon: faCreditCard },
-    { Title: "Status Bar", Link: "/StatusBar", Icon: faUser },
+    { Title: "Stats Bar", Link: "/StatusBar", Icon: faUser },
     { Title: "News Section", Link: "/News", Icon: faFile },
     { Title: "Language Pages", Link: "/Language", Icon: faFontAwesome },
   ];
@@ -64,7 +63,6 @@ const SideBar = ({
         </div>
       </div>
       <div className="col-span-10 w-full">
-        {/* <Breadcrumbs paths={NavData} /> */}
         {children}
         {/* <NavButtons /> */}
       </div>
