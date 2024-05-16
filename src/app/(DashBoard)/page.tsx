@@ -55,45 +55,61 @@ export default function Home() {
   };
   return (
     <div className="w-auto h-auto m-5 flex flex-col gap-5">
-      <div className="ml-6 text-2xl">Engagements On The Language Network:</div>
+      <div className="ml-6 xl:text-2xl lg:text-xl text-base">
+        Engagements On The Language Network:
+      </div>
 
-      <div className="m-5 w-auto h-auto gap-5 flex">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
         {initialData.engagement.map((item, index) => (
           <div
             key={index}
             className="border rounded-lg w-full p-5 hover:shadow-md transition duration-300"
           >
-            <div className="font-semibold text-xl">{item.title}</div>
-            <div className="font-light">Last Updated: {item.lastUpdated}</div>
+            <div className="font-semibold lg:text-lg text-md xl:text-xl">
+              {item.title}
+            </div>
+            <div className="font-light xl:text-base text-sm">
+              Last Updated: {item.lastUpdated}
+            </div>
           </div>
         ))}
       </div>
-      <div className="ml-6 text-2xl">Edit Components:</div>
-      <div className="m-5 w-auto h-auto gap-5 flex">
+      <div className="ml-6 xl:text-2xl lg:text-xl text-base">
+        Edit Components:
+      </div>
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
         {initialData.components.map((item, index) => (
           <div
             key={index}
             className="border rounded-lg w-full p-5 hover:shadow-md transition duration-300"
           >
-            <div className="font-semibold text-xl">{item.title}</div>
-            <div className="font-light">Last Updated: {item.lastUpdated}</div>
+            <div className="font-semibold lg:text-lg text-md xl:text-xl">
+              {item.title}
+            </div>
+            <div className="font-light xl:text-base text-sm">
+              Last Updated: {item.lastUpdated}
+            </div>
           </div>
         ))}
       </div>
-      <div className="ml-6 text-2xl">Edit Pages:</div>
-      <div className="m-5 w-auto h-auto gap-5 flex">
+      <div className="ml-6 xl:text-2xl lg:text-xl text-base">Edit Pages:</div>
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
         {initialData.pages.map((item, index) => (
           <Link
             href={item.link}
             key={index}
             className="border rounded-lg w-full p-5 hover:shadow-md transition duration-300"
           >
-            <div className="font-semibold text-xl">{item.title}</div>
-            <div className="font-light">Last Updated: {item.lastUpdated}</div>
+            <div className="font-semibold lg:text-lg text-md xl:text-xl">
+              {item.title}
+            </div>
+            <div className="font-light xl:text-base text-sm">
+              Last Updated: {item.lastUpdated}
+            </div>
           </Link>
         ))}
       </div>
-      <div className="m-5 w-auto h-auto gap-5 flex">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
         <div className="border flex justify-center items-center rounded-lg w-full p-5">
           <div className="text-xl">Add Another Language</div>
         </div>

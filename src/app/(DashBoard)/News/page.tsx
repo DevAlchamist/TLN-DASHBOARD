@@ -39,7 +39,7 @@ const Page = () => {
       >
         News Section:
       </label>
-      <div className="flex gap-5">
+      <div className="flex flex-wrap gap-5">
         <div>
           <label htmlFor="title" className="block mb-2 font-bold text-gray-700">
             Title:

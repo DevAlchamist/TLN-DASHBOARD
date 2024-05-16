@@ -4,68 +4,79 @@ import PromoBar from "@/components/Status";
 import React, { ChangeEventHandler, useState } from "react";
 
 const Page = () => {
-    const [languages, setLanguages] = useState<number>(7);
-    const [learners, setLearners] = useState<number>(5000);
-    const [alphaMentors, setAlphaMentors] = useState<number>(150);
-    const [hoursOfEnlightenment, setHoursOfEnlightenment] = useState<number>(50000);
-    const [googleReviews, setGoogleReviews] = useState<number>(4.9);
-  
-    const handleLanguagesChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      const value = parseInt(event.target.value);
-      if (!isNaN(value)) {
-        setLanguages(value);
-      }
-    };
-  
-    const handleLearnersChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      const value = parseInt(event.target.value);
-      if (!isNaN(value)) {
-        setLearners(value);
-      }
-    };
-  
-    const handleAlphaMentorsChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      const value = parseInt(event.target.value);
-      if (!isNaN(value)) {
-        setAlphaMentors(value);
-      }
-    };
-  
-    const handleHoursOfEnlightenmentChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      const value = parseInt(event.target.value);
-      if (!isNaN(value)) {
-        setHoursOfEnlightenment(value);
-      }
-    };
-  
-    const handleGoogleReviewsChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      const value = parseFloat(event.target.value);
-      if (!isNaN(value)) {
-        setGoogleReviews(value);
-      }
-    };
-  
-    const handleUpdate = () => {
-      // Perform any validation or additional logic before updating the state
-    };
-  
-    const StatusBarData = {
-      Languages: languages,
-      HappyLearners: learners,
-      AlphaMentors: alphaMentors,
-      HoursOfEnlightenment: hoursOfEnlightenment,
-      GoogleReviewsRating: googleReviews,
-    };
+  const [languages, setLanguages] = useState<number>(7);
+  const [learners, setLearners] = useState<number>(5000);
+  const [alphaMentors, setAlphaMentors] = useState<number>(150);
+  const [hoursOfEnlightenment, setHoursOfEnlightenment] =
+    useState<number>(50000);
+  const [googleReviews, setGoogleReviews] = useState<number>(4.9);
+
+  const handleLanguagesChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    const value = parseInt(event.target.value);
+    if (!isNaN(value)) {
+      setLanguages(value);
+    }
+  };
+
+  const handleLearnersChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    const value = parseInt(event.target.value);
+    if (!isNaN(value)) {
+      setLearners(value);
+    }
+  };
+
+  const handleAlphaMentorsChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    const value = parseInt(event.target.value);
+    if (!isNaN(value)) {
+      setAlphaMentors(value);
+    }
+  };
+
+  const handleHoursOfEnlightenmentChange: ChangeEventHandler<
+    HTMLInputElement
+  > = (event) => {
+    const value = parseInt(event.target.value);
+    if (!isNaN(value)) {
+      setHoursOfEnlightenment(value);
+    }
+  };
+
+  const handleGoogleReviewsChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    const value = parseFloat(event.target.value);
+    if (!isNaN(value)) {
+      setGoogleReviews(value);
+    }
+  };
+
+  const handleUpdate = () => {
+    // Perform any validation or additional logic before updating the state
+  };
+
+  const StatusBarData = {
+    Languages: languages,
+    HappyLearners: learners,
+    AlphaMentors: alphaMentors,
+    HoursOfEnlightenment: hoursOfEnlightenment,
+    GoogleReviewsRating: googleReviews,
+  };
   return (
     <div className="w-full h-full flex flex-col gap-5 p-4 border rounded-lg shadow-lg">
       <label
         htmlFor="inputData"
         className="block mb-2 text-3xl font-bold text-gray-700"
       >
-        Status Bar:
+        Stats Bar:
       </label>{" "}
       <div className="w-full flex flex-col gap-5">
-        <div className="flex gap-5 items-center">
+        <div className="flex  flex-wrap  gap-5 items-center">
           <div>
             <label
               htmlFor="inputData"

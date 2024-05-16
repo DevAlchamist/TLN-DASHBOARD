@@ -25,7 +25,7 @@ const StatusBar: React.FC<StatusBarProps> = (data) => {
               <div className="text-center text-stone-900 max-sm:text-3xl text-5xl font-bold">
                 {StatusDATA.Languages ? StatusDATA.Languages : " 7"}
               </div>
-              <div className="w-fit xl:w-[125px] lg:w-[125px] text-center text-black text-opacity-60 mx-auto max-sm:text-base text-2xl font-normal">
+              <div className="w-fit xl:w-[125px] lg:w-[125px] text-center text-black text-opacity-60 mx-auto max-sm:text-base xl:text-xl lg:text-lg  font-normal">
                 Languages
               </div>
             </div>
@@ -33,7 +33,7 @@ const StatusBar: React.FC<StatusBarProps> = (data) => {
               <div className="text-center max-sm:text-3xl text-stone-900 text-5xl font-bold">
                 {StatusDATA.HappyLearners ? StatusDATA.HappyLearners : " 5000+"}
               </div>
-              <div className="w-fit xl:w-[180px] lg:w-[180px] text-center text-black text-opacity-60 mx-auto max-sm:text-base text-2xl font-normal">
+              <div className="w-fit xl:w-[180px] lg:w-[180px] text-center text-black text-opacity-60 mx-auto max-sm:text-base xl:text-xl lg:text-lg  font-normal">
                 Happy Learners
               </div>
             </div>
@@ -41,7 +41,7 @@ const StatusBar: React.FC<StatusBarProps> = (data) => {
               <div className="text-center max-sm:text-3xl text-stone-900 text-5xl font-bold">
                 {StatusDATA.AlphaMentors ? StatusDATA.AlphaMentors : " 150+"}
               </div>
-              <div className="w-fit xl:w-[165px] lg:w-[165px] text-center text-black text-opacity-60 text-2xl mx-auto max-sm:text-base font-normal">
+              <div className="w-fit xl:w-[165px] lg:w-[165px] text-center text-black text-opacity-60 xl:text-xl lg:text-lg  mx-auto max-sm:text-base font-normal">
                 Alpha Mentors
               </div>
             </div>
@@ -51,7 +51,7 @@ const StatusBar: React.FC<StatusBarProps> = (data) => {
                   ? StatusDATA.HoursOfEnlightenment
                   : " 50000+"}
               </div>
-              <div className="w-fit xl:w-[267px] lg:w-[267px] mx-auto max-sm:text-base text-center text-black text-opacity-60 text-2xl font-normal">
+              <div className="w-fit xl:w-[267px] lg:w-[267px] mx-auto max-sm:text-base text-center text-black text-opacity-60 xl:text-xl lg:text-lg  font-normal">
                 Hours of Enlightenment
               </div>
             </div>
@@ -68,7 +68,7 @@ const StatusBar: React.FC<StatusBarProps> = (data) => {
                   )}
                 </div>
               </div>
-              <div className="w-fit xl:w-[182px] lg:w-[182px] text-center text-black text-opacity-60 max-sm:text-base text-2xl font-normal">
+              <div className="w-fit xl:w-[182px] lg:w-[182px] text-center text-black text-opacity-60 max-sm:text-base xl:text-xl lg:text-lg  font-normal">
                 Google Reviews
               </div>
             </div>
