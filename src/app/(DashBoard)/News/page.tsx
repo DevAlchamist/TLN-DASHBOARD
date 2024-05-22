@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import img1 from "@/assets/image12.svg";
 import img2 from "@/assets/image11.svg";
 
@@ -32,7 +32,7 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col gap-5 p-4 border rounded-lg shadow-lg">
+    <div className="w-full h-full flex flex-col gap-5 p-4 ">
       <label
         htmlFor="title"
         className="block text-3xl mb-2 font-bold text-gray-700"

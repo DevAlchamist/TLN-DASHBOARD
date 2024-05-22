@@ -13,7 +13,7 @@ const Page = () => {
     // You can perform further actions with the form data, such as sending it to a server
   };
   return (
-    <div className="w-full h-full flex flex-col gap-5 p-4 border rounded-lg shadow-lg">
+    <div className="w-full h-full flex flex-col gap-5 p-4">
       <label
         htmlFor="inputData"
         className="block mb-2 text-3xl font-bold text-gray-700"

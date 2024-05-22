@@ -12,6 +12,9 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import BreadCrumbs from "./Reusable/BreadCrumbs";
+import Image from "next/image";
+import Logo from "@/assets/image 2.svg";
 
 const SideBar = ({ children }: { children: React.ReactNode }) => {
   const NavData = [
@@ -53,8 +56,8 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
       <div className="lg:col-span-3 xl:col-span-2 hidden h-screen p-5 border-r lg:flex xl:flex flex-col justify-between shadow-xl w-full">
         {/* Sidebar content */}
         <div className="flex flex-col gap-5">
-          <div className="w-full text-center font-semibold">
-            The Language Network
+          <div className="w-full pb-1 flex items-center justify-center text-center font-semibold">
+            <Image src={Logo} alt="Logo" />
           </div>
           <hr />
           <div className="w-full text-start font-medium">
@@ -76,8 +79,8 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      {/* Sidebar for mobile view */}
-      <div className="h-full overflow-y-auto lg:col-span-9 col-span-12 xl:col-span-10 w-full">
+      {/* OverFlow Part */}
+      <div className="h-full lg:col-span-9 col-span-12 xl:col-span-10 w-full">
         <div className="text-center p-5 border-b lg:hidden xl:hidden flex">
           {/* Toggle button for mobile view */}
           <button className="" onClick={toggleSidebar}>
@@ -115,7 +118,11 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {/* Main content */}
-        {children}
+        <div className=" overflow-y-auto h-screen">
+          <BreadCrumbs />
+          <hr />
+          {children}
+        </div>
       </div>
     </div>
   );

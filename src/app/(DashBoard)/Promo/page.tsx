@@ -10,7 +10,7 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col gap-5 p-4 border rounded-lg shadow-lg">
+    <div className="w-full h-full flex flex-col gap-5 p-4 ">
       <label htmlFor="inputData" className="block mb-2 font-bold text-gray-700">
         Promo Bar:
       </label>
