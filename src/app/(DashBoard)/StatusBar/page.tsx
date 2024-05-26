@@ -1,15 +1,40 @@
 "use client";
+import {
+  getStatsAsync,
+  // updateStatsAsync,
+  selectFAQStatus,
+  selectStats,
+} from "@/Store/adminSlice";
 import StatusBar from "@/components/Status";
-import PromoBar from "@/components/Status";
-import React, { ChangeEventHandler, useState } from "react";
+import { useAppDispatch } from "@/helpers/hooks";
+import React, { ChangeEventHandler, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Page = () => {
-  const [languages, setLanguages] = useState<number>(7);
-  const [learners, setLearners] = useState<number>(5000);
-  const [alphaMentors, setAlphaMentors] = useState<number>(150);
-  const [hoursOfEnlightenment, setHoursOfEnlightenment] =
-    useState<number>(50000);
-  const [googleReviews, setGoogleReviews] = useState<number>(4.9);
+  const dispatch = useAppDispatch();
+
+  const statsData = useSelector(selectStats);
+  const status = useSelector(selectFAQStatus);
+
+  const [languages, setLanguages] = useState<number>(0);
+  const [learners, setLearners] = useState<number>(0);
+  const [alphaMentors, setAlphaMentors] = useState<number>(0);
+  const [hoursOfEnlightenment, setHoursOfEnlightenment] = useState<number>(0);
+  const [googleReviews, setGoogleReviews] = useState<number>(0);
+
+  useEffect(() => {
+    dispatch(getStatsAsync());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (statsData) {
+      setLanguages(statsData.totalLanguages);
+      setLearners(statsData.totalLearners);
+      setAlphaMentors(statsData.totalMentors);
+      setHoursOfEnlightenment(statsData.totalHours);
+      setGoogleReviews(statsData.googleReviews);
+    }
+  }, [statsData]);
 
   const handleLanguagesChange: ChangeEventHandler<HTMLInputElement> = (
     event
@@ -55,31 +80,42 @@ const Page = () => {
       setGoogleReviews(value);
     }
   };
-
   const handleUpdate = () => {
-    // Perform any validation or additional logic before updating the state
+    const updatedStats = {
+      totalLanguages: languages ? languages : statsData.totalLanguages,
+      totalLearners: learners ? learners : statsData.totalLeaners,
+      totalMentors: alphaMentors ? alphaMentors : statsData.totalMentors,
+      totalHours: hoursOfEnlightenment
+        ? hoursOfEnlightenment
+        : statsData.totalHours,
+      googleReviews: googleReviews ? googleReviews : statsData.googleReviews,
+    };
+    console.log(updatedStats);
+    // dispatch(updateStatsAsync(updatedStats));
   };
 
-  const StatusBarData = {
-    Languages: languages,
-    HappyLearners: learners,
-    AlphaMentors: alphaMentors,
-    HoursOfEnlightenment: hoursOfEnlightenment,
-    GoogleReviewsRating: googleReviews,
-  };
+  if (status === "loading") {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="loader">Loaders</div>{" "}
+        {/* Replace this with your actual loader component or HTML */}
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full h-full flex flex-col gap-5 p-4 ">
+    <div className="w-full h-full flex flex-col gap-5 p-4">
       <label
         htmlFor="inputData"
         className="block mb-2 text-3xl font-bold text-gray-700"
       >
         Stats Bar:
-      </label>{" "}
+      </label>
       <div className="w-full flex flex-col gap-5">
-        <div className="flex  flex-wrap  gap-5 items-center">
+        <div className="flex flex-wrap gap-5 items-center">
           <div>
             <label
-              htmlFor="inputData"
+              htmlFor="languages"
               className="block mb-2 text-xl font-light text-gray-700"
             >
               Languages
@@ -89,79 +125,79 @@ const Page = () => {
               type="number"
               value={languages}
               onChange={handleLanguagesChange}
-              placeholder="Update no. of Languages"
+              placeholder={statsData.totalLanguages}
               className="p-2 rounded-md border focus:outline-none"
             />
           </div>
           <div>
             <label
-              htmlFor="inputData"
+              htmlFor="learners"
               className="block mb-2 text-xl font-light text-gray-700"
             >
               Learners
             </label>
             <input
-              value={learners}
-              onChange={handleLearnersChange}
               id="learners"
               type="number"
-              placeholder="Update no. of Learners"
+              value={learners}
+              onChange={handleLearnersChange}
+              placeholder={statsData.totalLeaners}
               className="p-2 rounded-md border focus:outline-none"
             />
           </div>
           <div>
             <label
-              htmlFor="inputData"
+              htmlFor="alphaMentors"
               className="block mb-2 text-xl font-light text-gray-700"
             >
               Alpha Mentors
             </label>
             <input
-              value={alphaMentors}
-              onChange={handleAlphaMentorsChange}
               id="alphaMentors"
               type="number"
-              placeholder="Update no. of Alpha Mentors"
+              value={alphaMentors}
+              onChange={handleAlphaMentorsChange}
+              placeholder={statsData.totalMentors}
               className="p-2 rounded-md border focus:outline-none"
             />
           </div>
           <div>
             <label
-              htmlFor="inputData"
+              htmlFor="hoursOfEnlightenment"
               className="block mb-2 text-xl font-light text-gray-700"
             >
               Hours of Enlightenment
             </label>
             <input
-              value={hoursOfEnlightenment}
-              onChange={handleHoursOfEnlightenmentChange}
               id="hoursOfEnlightenment"
               type="number"
-              placeholder="Update no. of Hours of Enlightenment"
+              value={hoursOfEnlightenment}
+              onChange={handleHoursOfEnlightenmentChange}
+              placeholder={statsData.totalHours}
               className="p-2 rounded-md border focus:outline-none"
             />
           </div>
           <div>
             <label
-              htmlFor="inputData"
+              htmlFor="googleReviews"
               className="block mb-2 text-xl font-light text-gray-700"
             >
               Google Reviews
             </label>
             <input
-              value={googleReviews}
-              onChange={handleGoogleReviewsChange}
               id="googleReviews"
               type="number"
-              placeholder="Update Google Reviews Rating"
+              value={googleReviews}
+              onChange={handleGoogleReviewsChange}
+              placeholder={statsData.googleReviews}
               className="p-2 rounded-md border focus:outline-none"
             />
           </div>
         </div>
       </div>
-      <StatusBar data={StatusBarData} />{" "}
+      <StatusBar data={statsData} />
       <div className="flex w-full gap-5">
-        <button className="border rounded-md p-2">cancel</button>
+        <button className="border rounded-md p-2">Cancel</button>
         <button className="border rounded-md p-2" onClick={handleUpdate}>
           Update
         </button>

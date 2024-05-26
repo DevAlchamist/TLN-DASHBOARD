@@ -1,6 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import FaqAccordion from "./Faqs";
 
-const FormSection = ({ title, onSubmit }: any) => {
+interface PageData {
+  page: string;
+  link: string;
+}
+
+interface LanguagesProps {
+  Language: string;
+  page: PageData[];
+}
+
+const FormSection = ({ title, onSubmit, data }: any) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
 
@@ -17,7 +28,6 @@ const FormSection = ({ title, onSubmit }: any) => {
     setQuestion("");
     setAnswer("");
   };
-
   return (
     <div className="w-full flex flex-col gap-5">
       <div className="w-full flex flex-col gap-5">
@@ -48,6 +58,7 @@ const FormSection = ({ title, onSubmit }: any) => {
           Add
         </button>
       </div>
+      <FaqAccordion data={data} />
     </div>
   );
 };

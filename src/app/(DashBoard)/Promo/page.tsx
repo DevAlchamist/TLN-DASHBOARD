@@ -1,6 +1,14 @@
 // Page.js
 "use client";
-import React, { useState } from "react";
+import {
+  getPromoAsync,
+  selectFAQStatus,
+  selectFAQsData,
+  selectPromoData,
+} from "@/Store/adminSlice";
+import { useAppDispatch } from "@/helpers/hooks";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Page = () => {
   const [InputValue, setInputValue] = useState("");
@@ -8,6 +16,34 @@ const Page = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getPromoAsync());
+  }, [dispatch]);
+
+  const data = useSelector(selectPromoData);
+  const status = useSelector(selectFAQStatus);
+
+  if (status === "loading" || !data) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="loader">Loader...</div>{" "}
+        {/* Replace this with your actual loader component or HTML */}
+      </div>
+    );
+  }
+  const dataObject =
+    data?.reduce((acc: any, item: any) => {
+      acc["Data"] = {
+        topic: item.topic,
+        label: item.label,
+        link: item.link,
+      };
+      return acc;
+    }, {}) || {};
+  console.log(data);
+  console.log(dataObject);
 
   return (
     <div className="w-full h-full flex flex-col gap-5 p-4 ">
@@ -29,10 +65,8 @@ const Page = () => {
                 InputValue
               ) : (
                 <>
-                  <span className="font-normal">
-                    DELF /Goethe Exam Schedule
-                  </span>{" "}
-                  | Batches Starting Now!
+                  <span className="font-normal">{dataObject.Data.label}</span> |{" "}
+                  {dataObject.Data.topic}
                 </>
               )}
             </h1>

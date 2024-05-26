@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 
 export default function Home() {
@@ -51,13 +52,14 @@ export default function Home() {
       },
     ],
   };
+
   return (
     <div className="w-auto h-auto m-5 flex flex-col gap-5">
       <div className="ml-6 xl:text-2xl lg:text-xl text-base">
         Engagements On The Language Network:
       </div>
 
-      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap xl:flex-row flex-wrap lg:flex-row">
         {initialData.engagement.map((item, index) => (
           <div
             key={index}
@@ -75,7 +77,7 @@ export default function Home() {
       <div className="ml-6 xl:text-2xl lg:text-xl text-base">
         Edit Components:
       </div>
-      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap xl:flex-row flex-wrap lg:flex-row">
         {initialData.components.map((item, index) => (
           <div
             key={index}
@@ -91,7 +93,7 @@ export default function Home() {
         ))}
       </div>
       <div className="ml-6 xl:text-2xl lg:text-xl text-base">Edit Pages:</div>
-      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap xl:flex-row flex-wrap lg:flex-row">
         {initialData.pages.map((item, index) => (
           <Link
             href={item.link}
@@ -107,8 +109,8 @@ export default function Home() {
           </Link>
         ))}
       </div>
-      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap  xl:flex-row flex-wrap lg:flex-row">
-        <div className="border flex justify-center items-center rounded-lg w-full p-5">
+      <div className="m-5 w-auto h-auto gap-5 flex xl:flex-nowrap xl:flex-row flex-wrap lg:flex-row">
+        <div className="border flex justify-center items-center rounded-lg w-full p-5 cursor-pointer">
           <div className="text-xl">Add Another Language</div>
         </div>
       </div>

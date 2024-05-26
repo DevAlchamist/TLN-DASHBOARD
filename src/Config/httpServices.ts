@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = "http://localhost:8000"; // url
+axios.defaults.baseURL = "http://3.110.121.13/"; // url
 
 // Request interceptor (without authentication token)
 axios.interceptors.request.use(
